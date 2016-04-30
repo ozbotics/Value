@@ -88,7 +88,7 @@ class Value : public ValueBase {
     * @param divideBy the new divideBy
     * @return nothing
     */  
-    void setDivideBy(byte divideBy) {
+    void setDivideBy(unsigned int divideBy) {
       _divideBy = divideBy;
     }
 
