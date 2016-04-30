@@ -12,9 +12,9 @@ Values may specify the number of decimal places. Value<int> becomes a fixed poin
 Values may specify a scaleFactor. The displayValue is the actual value, divided by the scaler. This is usefull for converting milliseconds into seconds or minutes, etc.
 (This is currently implemented as an unsigned integer. ie; value can only be divided, not multiplied. In the future it may be necessary to make this a float or fixed-point)
 
-All Values may be read, updated, persisted and reverted, via getValue(), setValue(), persitValue() and revertValue(). A Value can coomunicate that it has changed, via hasChanged().
+All Values may be read, updated, persisted and reverted, via getValue(), setValue(), persitValue() and revertValue(). A Value can indicate that it has changed, via hasChanged().
 
-Value may be sub-classes to handle the representation of various information sources within a project. 
+Value may be sub-classed to handle the representation of various information sources within a project. 
 
 The Value library currently provides interfaces for EEPROM storage, Sensors, Actuators, Numerical Expressions and Boolean Expressions.
 
@@ -78,7 +78,7 @@ Value<int> intValue(1,2);
 ```
 In this case the int is being used as fixed point, where its last 2 digital are used as decimal places  (divided by 10^2)
 
-In the case of a float the value is not divided, its precsion is simply capped to the number of decimals.
+In the case of a float the value is not divided, its precision is simply capped to the number of decimals.
 
 It is possibly to change this a run-time by calling setDisplayDecimals()
 ```
@@ -89,7 +89,7 @@ At construction time you can specify a divideBy scaler.
 ```
 Value<int> intValue(1,0,1000);
 ```
-The displayValue is the actual value is divided by the divideBy value. This is usefull for converting milliseconds to seconds or minutes, etc.
+The displayValue is the actual value divided by the divideBy value. This is usefull for converting milliseconds to seconds or minutes, etc.
 
 It is possibly to change this at run-time by calling setDivideBy()
 ```
@@ -121,7 +121,8 @@ if (intValue.hasChanged()) { ... }
 ## ValueEeprom
 
 The Value Libary provides the ValueEeprom class template. Values may be held permanently in EEPROM memory. This is usefull for device configuaration.
-The EEPROMex is required (see github... )
+
+The EEPROMEx Library is required (see https://github.com/thijse/Arduino-EEPROMEx)
 
 ```
 #include <EEPROMex.h>
@@ -146,7 +147,7 @@ intValue.initValue(1000);
 ```
 
 I recommend that the first ValueEeprom be a 'configured' flag or magic number, so that it is possible by initialising the first ValueEeprom from eeprom, 
-then depending on its value, proceeding to initialize the remaining ValueEeprom(s) from eeprom, or do a factory-reset
+then depending on its value, proceeding to initialize the remaining ValueEeprom(s) from eeprom, or initiallising them in code (First tiem setup / Factory Reset )
 
 The 'Config' class is a good complement to ValueEeprom. It provides mechanisms for setting default values on factory reset and initiallising current values from the eeprom.
 (See Config)
