@@ -1,0 +1,17 @@
+{
+  "name": "Value",
+  "keywords": "value",
+  "description": "Value library provides a uniform interface for objects to expose attributes that maybe rendered to character strings and participate in Value Expressions"
+  "authors":
+  [
+    {
+      "name": "Jon van Noort"
+    }
+  ],
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/ozbotics/Value"
+  },
+  "frameworks": "arduino"
+}

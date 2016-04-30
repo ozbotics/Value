@@ -1,0 +1,65 @@
+#######################################
+# Syntax Coloring Map For Value
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ValueBase	KEYWORD1
+Value	KEYWORD1
+EepromValue	KEYWORD1
+ValueExpr	KEYWORD1
+ValueADD	KEYWORD1
+ValueSUBTRACT	KEYWORD1
+ValueMULTIPLY	KEYWORD1
+ValueDIVIDE	KEYWORD1
+ValueReference	KEYWORD1
+ValueList	KEYWORD1
+ValuePadString	KEYWORD1
+ValueProgmemString	KEYWORD1
+
+
+Condition	KEYWORD1
+ConditionBoolean	KEYWORD1
+ConditionAND	KEYWORD1
+ConditionOR	KEYWORD1
+ConditionComparison	KEYWORD1
+ConditionEQ	KEYWORD1
+ConditionNEQ	KEYWORD1
+ConditionLT	KEYWORD1
+ConditionLTEQ	KEYWORD1
+ConditionGT	KEYWORD1
+ConditionGTEQ	KEYWORD1
+ConditionTRUE	KEYWORD1
+ConditionFALSE	KEYWORD1
+ConditionNOT	KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+#Value
+getValueString	KEYWORD2
+getValue	KEYWORD2
+setValue	KEYWORD2
+setDisplayLength	KEYWORD2
+setDisplayDecimals	KEYWORD2
+setDivideBy	KEYWORD2
+
+hasChanged	KEYWORD2
+persistValue	KEYWORD2
+revertValue	KEYWORD2
+initValue	KEYWORD2
+
+#EepromValue
+initValueFromEeprom	KEYWORD2
+persistValue	KEYWORD2
+getEepromAddress	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
