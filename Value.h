@@ -220,7 +220,7 @@ class Value : public ValueBase {
 
 template <class T>
 void Value<T>::getValueString(char * buf) {
-  float displayValue = this->getValue() / _divideBy / pow(10, _displayDecimals);
+  float displayValue = (float) this->getValue() / _divideBy / pow(10, _displayDecimals);
   dtostrf(displayValue, _displayLength, _displayDecimals, buf);
 }
 
