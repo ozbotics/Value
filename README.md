@@ -26,8 +26,9 @@ Any number of Values, Numerical Expressions and Boolean Expressions can be wired
 
 Clone the git repository into your Arduino/libraries directory
 
+## Usage
 
-## BaseValue
+### BaseValue
 
 All Value template classes inherit from BaseValue. BaseValue guarantees the ability to getValueString().
 
@@ -37,7 +38,7 @@ myValue.getValueString(buffer);
 ```
 
 
-## Value\<T>
+### Value\<T>
 
 Include the Value library
 ```
@@ -118,7 +119,7 @@ if (intValue.hasChanged()) { ... }
 ```
 
 
-## ValueEeprom\<T>
+### ValueEeprom\<T>
 
 The Value Libary provides the ValueEeprom class template. Values may be held permanently in EEPROM memory. This is usefull for device configuaration.
 
