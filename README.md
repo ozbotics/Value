@@ -37,7 +37,7 @@ myValue.getValueString(buffer);
 ```
 
 
-## Value
+## Value<T>
 
 Include the Value library
 ```
@@ -118,7 +118,7 @@ if (intValue.hasChanged()) { ... }
 ```
 
 
-## ValueEeprom
+## ValueEeprom<T>
 
 The Value Libary provides the ValueEeprom class template. Values may be held permanently in EEPROM memory. This is usefull for device configuaration.
 
