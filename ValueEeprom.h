@@ -9,11 +9,11 @@
 #include <EEPROMex.h>
 
 /**
-  *  EepromValue class template. 
+  *  ValueEeprom class template. 
   *  Value that is able to persist itself to EEPROM
 */
 template <class T>
-class EepromValue : public Value<T> {
+class ValueEeprom : public Value<T> {
   protected:
     int _eepromAddress;  /**< protected variable _eepromAddress. The address in EEPROM memory */ 
 
@@ -24,7 +24,7 @@ class EepromValue : public Value<T> {
     * @param displayDecimals The number of decimal places.
     * @param divideBy Divide the value by this amount, eg; 60000 to convert milliseconds to minutes.
     */  
-    EepromValue(byte displayLength=1, byte displayDecimals=0, unsigned int divideBy=1) : Value<T>(displayLength, displayDecimals, divideBy) {
+    ValueEeprom(byte displayLength=1, byte displayDecimals=0, unsigned int divideBy=1) : Value<T>(displayLength, displayDecimals, divideBy) {
       _eepromAddress = EEPROM.getAddress(sizeof(T));
       initValueFromEeprom();
     }
