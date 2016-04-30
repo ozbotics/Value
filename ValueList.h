@@ -9,7 +9,7 @@
 #include <Value.h>
 
 /**
-  *  ValueList class temmplate. 
+  *  ValueList class template. 
   *  The concatenation of a collection of Values
 */
 class ValueList : public ValueBase {

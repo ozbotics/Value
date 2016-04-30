@@ -9,7 +9,7 @@
 #include <Value.h>
 
 /**
-  *  ValuePadString class temmplate. 
+  *  ValuePadString class template. 
   *  Has the value of a fixed number of pad charcaters
   */
 class ValuePadString : public ValueBase {

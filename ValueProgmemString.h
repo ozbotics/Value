@@ -9,7 +9,7 @@
 #include <Value.h>
 
 /**
-  *  ValueProgmemString class temmplate. 
+  *  ValueProgmemString class template. 
   *  Has the value of a character string that is stored in PROGMEM
   */
 class ValueProgmemString : public ValueBase {

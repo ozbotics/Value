@@ -73,7 +73,7 @@ class Value : public ValueBase {
     void setDisplayLength(byte displayLength) {
       _displayLength = displayLength;
     }
-
+    
    /**
     * set the displayDecimals
     * @param displayDecimals the new displayDecimals
