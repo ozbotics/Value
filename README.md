@@ -9,7 +9,7 @@ Values may specify the minimum width of the displayValue. If the width is more t
 
 Values may specify the number of decimal places. Value<int> becomes a fixed point number by specifying more than 0 decimal places.
 
-Values may specify a scaleFactor. The displayValue is the actual value, divided by the scaler. This is usefull for converting milliseconds into seconds or minutes, etc.
+Values may specify a scaleFactor. The displayValue is the actual value, divided by the scaler. This is useful for converting milliseconds into seconds or minutes, etc.
 (This is currently implemented as an unsigned integer. ie; value can only be divided, not multiplied. In the future it may be necessary to make this a float or fixed-point)
 
 All Values may be read, updated, persisted and reverted, via getValue(), setValue(), persitValue() and revertValue(). A Value can indicate that it has changed, via hasChanged().
@@ -90,7 +90,7 @@ At construction time you can specify a divideBy scaler.
 ```
 Value<int> intValue(1,0,1000);
 ```
-The displayValue is the actual value divided by the divideBy value. This is usefull for converting milliseconds to seconds or minutes, etc.
+The displayValue is the actual value divided by the divideBy value. This is useful for converting milliseconds to seconds or minutes, etc.
 
 It is possibly to change this at run-time by calling setDivideBy()
 ```
@@ -102,7 +102,7 @@ This should be born in mind when comparing the values of Value<int> with differe
 but intVal1.getValue() is far greater than intVal2.getValue()
 
 
-It is also possible to persist and revert a value. (This is usefull when manging a Setting in a User Interface.)
+It is also possible to persist and revert a value. (This is useful when manging a Setting in a User Interface.)
 ```
 intValue.setValue(60000);
 intValue.persistValue();
@@ -121,7 +121,7 @@ if (intValue.hasChanged()) { ... }
 
 ### ValueEeprom\<T>
 
-The Value Libary provides the ValueEeprom class template. Values may be held permanently in EEPROM memory. This is usefull for device configuaration.
+The Value Libary provides the ValueEeprom class template. Values may be held permanently in EEPROM memory. This is useful for device configuaration.
 
 The EEPROMEx Library is required (see https://github.com/thijse/Arduino-EEPROMEx)
 
