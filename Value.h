@@ -100,6 +100,7 @@ class Value : public ValueBase {
     bool operator==(Value<T>& other) {
       return (this->getValue() == other.getValue());
     }
+    
 
    /**
     * not-equal operator
@@ -109,7 +110,7 @@ class Value : public ValueBase {
     bool operator!=(Value<T>& other) {
       return (this->getValue() != other.getValue());
     }
-    
+
    /**
     * less-than operator
     * @param other the other Value object to be compared
@@ -127,7 +128,7 @@ class Value : public ValueBase {
     bool operator<=(Value<T>& other) {
       return (this->getValue() <= other.getValue());
     }
-
+    
    /**
     * greater-than operator
     * @param other the other Value object to be compared
@@ -136,7 +137,7 @@ class Value : public ValueBase {
     bool operator>(Value<T>& other) {
       return (this->getValue() > other.getValue());
     }
-
+    
    /**
     * greater-than-or-equal operator
     * @param other the other Value object to be compared
