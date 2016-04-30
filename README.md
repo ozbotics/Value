@@ -37,7 +37,7 @@ myValue.getValueString(buffer);
 ```
 
 
-## Value<T>
+## Value\<T>
 
 Include the Value library
 ```
@@ -118,7 +118,7 @@ if (intValue.hasChanged()) { ... }
 ```
 
 
-## ValueEeprom<T>
+## ValueEeprom\<T>
 
 The Value Libary provides the ValueEeprom class template. Values may be held permanently in EEPROM memory. This is usefull for device configuaration.
 
@@ -131,7 +131,7 @@ The EEPROMEx Library is required (see https://github.com/thijse/Arduino-EEPROMEx
 #include <ValueEeprom.h>
 ```
 
-Settings may be created simply by defining and instance of ValueEeprom<T>
+Settings may be created simply by defining and instance of ValueEeprom\<T>
 ```
 ValueEeprom<int> intValue(1,0,1000);
 ```
