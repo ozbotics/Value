@@ -24,7 +24,7 @@ class ValueBase {
 
  /**
   *  Value<T> class template. 
- */
+  */
 template <class T>
 class Value : public ValueBase {
   protected:
