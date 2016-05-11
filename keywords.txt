@@ -35,6 +35,7 @@ ConditionTRUE	KEYWORD1
 ConditionFALSE	KEYWORD1
 ConditionNOT	KEYWORD1
 
+Config	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
