@@ -230,4 +230,6 @@ T Value<T>::getValue() {
   return _value; 
 }
 
+typedef unsigned long Duration; /**< typedef  Duration  An integer type used to represent time. Expressed in milliseconds */ 
+
 #endif // _VALUE_H
