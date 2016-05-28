@@ -30,12 +30,14 @@ class Config {
   *
   * Extends Config to provide ProtoBuf encoding/decoding to/from a Stream
   *
+  * @todo - refactor this to write directly to the stream, rather than have a ram buffer intermediary
+  *
   * Requires subclasses to provide decodePb() & encodePb()
   */
 class PbStreamConfig : public Config {
   protected:
-    int _pBufSize;
-    uint8_t* _pBuf;
+    int _pBufSize;   /**< protected variable _pBufSize  The size of the buffer  */
+    uint8_t* _pBuf;  /**< protected variable _pBuf  The actual buffer */
     
   public:
     PbStreamConfig(int pBufSize) : _pBufSize(pBufSize), Config() {
