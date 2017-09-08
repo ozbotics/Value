@@ -1,4 +1,4 @@
-/** @file ValueProgmemString.h 
+/** @file ValueReference.h 
   *  Copyright (c) 2016 Ozbotics 
   *  Distributed under the MIT license (see LICENSE)
   */
