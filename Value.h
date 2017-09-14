@@ -33,6 +33,7 @@ class Value : public ValueBase {
     byte _displayLength;      /**< protected variable _displayLength. The total width of the output string. */ 
     byte _displayDecimals;    /**< protected variable _displayDecimals. The number of decimal places. */ 
     unsigned int _divideBy;   /**< protected variable _divideBy. Divide the value by this amount, eg; 60000 to convert milliseconds to minutes. */ 
+    char _padChar;            /**< protected variable _padChar. LeftPad with this char. */ 
     
     boolean _updateEnabled = true; /**< protected variable _updateEnabled. Controll when forced updates are allowed */ 
 
@@ -43,7 +44,7 @@ class Value : public ValueBase {
     * @param displayDecimals The number of decimal places.
     * @param divideBy Divide the value by this amount, eg; 60000 to convert milliseconds to minutes.
     */  
-    Value<T>(byte displayLength=0, byte displayDecimals=0, unsigned int divideBy=1) :  _displayLength(displayLength), _displayDecimals(displayDecimals), _divideBy(divideBy), _value( T() ), _oldValue( T() ), ValueBase() { }
+    Value<T>(byte displayLength=0, byte displayDecimals=0, unsigned int divideBy=1) :  _displayLength(displayLength), _displayDecimals(displayDecimals), _divideBy(divideBy), _value( T() ), _oldValue( T() ), _padChar(' '), ValueBase() { }
 
    /**
     * render the value as a character string
@@ -83,7 +84,7 @@ class Value : public ValueBase {
     */  
     void setDisplayDecimals(byte displayDecimals) {
       _displayDecimals = displayDecimals;
-      }
+    }
 
    /**
     * set the divideBy
@@ -92,6 +93,15 @@ class Value : public ValueBase {
     */  
     void setDivideBy(unsigned int divideBy) {
       _divideBy = divideBy;
+    }
+
+   /**
+    * set the padChar
+    * @param padChar the new padChar
+    * @return nothing
+    */  
+    void setPadChar(char padChar) {
+      _padChar = padChar;
     }
 
    /**
@@ -252,6 +262,16 @@ template <class T>
 void Value<T>::getValueString(char * buf) {
   float displayValue = (float) this->getValue() / _divideBy / pow(10, _displayDecimals);
   dtostrf(displayValue, _displayLength, _displayDecimals, buf);
+  
+  char find = ' ';
+  if (_padChar != ' ') {
+    char *current_pos = strchr(buf, find);
+    while (current_pos){
+      *current_pos = _padChar;
+      current_pos = strchr(current_pos,find);
+    }
+  }  
+  
 }
 
 template <class T>
