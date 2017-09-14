@@ -208,7 +208,6 @@ class Value : public ValueBase {
     * @return nothing
     */  
     virtual void persistValue() {
-      //Serial.println("Value::persistValue()");    
       _oldValue = this->getValue(); 
     }
 
@@ -236,9 +235,6 @@ class Value : public ValueBase {
     * @return nothing
     */  
     virtual void setUpdateEnabled(bool enabled) {
-      //Serial.print("Value::setUpdateEnabled() ");
-      //Serial.println(enabled);
-      
       _updateEnabled = enabled;
     }
 
@@ -248,8 +244,6 @@ class Value : public ValueBase {
     * @return nothing
     */  
     virtual void updateValue(T value) {
-      //Serial.println("Value::updateValue()");
-      
       if (_updateEnabled) {
         Value<T>::setValue(value);
       }
