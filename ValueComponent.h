@@ -15,7 +15,7 @@
 template <class T, class RT>
 class ValueComponent : public Value<T> {
   protected:
-    RT& _valueRef;  /**< protected variable _valueRef. Reference to a variable */ 
+    RT _valueRef;  /**< protected variable _valueRef. Reference to a variable */ 
   
   public:    
   /**
@@ -25,7 +25,7 @@ class ValueComponent : public Value<T> {
     * @param displayDecimals The number of decimal places.
     * @param divideBy Divide the value by this amount, eg; 60000 to convert milliseconds to minutes.
     */  
-    ValueComponent(RT& valueRef, byte displayLength=0, byte displayDecimals=0, unsigned int divideBy=1) : _valueRef(valueRef), Value<T>(displayLength, displayDecimals, divideBy) { }
+    ValueComponent(RT valueRef, byte displayLength=0, byte displayDecimals=0, unsigned int divideBy=1) : _valueRef(valueRef), Value<T>(displayLength, displayDecimals, divideBy) { }
     
    /**
     * return the value in its native type
@@ -53,6 +53,29 @@ class ValueComponent : public Value<T> {
     * @return nothing
     */  
     virtual void setComponentValue(T value)=0;
+    
+   /**
+    * persist the value
+    * @return nothing
+    */  
+    virtual void persistValue() {
+      _valueRef->persistValue();
+    }
+    
+    
+   /**
+    * set _updateEnabled
+    * @param enabled   is update allowed?
+    * @return nothing
+    */  
+    virtual void setUpdateEnabled(bool enabled) {
+      //Serial.print("ValueComponent::setUpdateEnabled() ");
+      //Serial.println(enabled);
+      
+      Value<T>::setUpdateEnabled(enabled);
+      _valueRef->setUpdateEnabled(enabled);
+    }
+    
     
 };
 

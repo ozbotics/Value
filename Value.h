@@ -33,6 +33,8 @@ class Value : public ValueBase {
     byte _displayLength;      /**< protected variable _displayLength. The total width of the output string. */ 
     byte _displayDecimals;    /**< protected variable _displayDecimals. The number of decimal places. */ 
     unsigned int _divideBy;   /**< protected variable _divideBy. Divide the value by this amount, eg; 60000 to convert milliseconds to minutes. */ 
+    
+    boolean _updateEnabled = true; /**< protected variable _updateEnabled. Controll when forced updates are allowed */ 
 
   public:
   /**
@@ -196,6 +198,7 @@ class Value : public ValueBase {
     * @return nothing
     */  
     virtual void persistValue() {
+      //Serial.println("Value::persistValue()");    
       _oldValue = this->getValue(); 
     }
 
@@ -217,6 +220,32 @@ class Value : public ValueBase {
       persistValue();
     }
 
+   /**
+    * set _updateEnabled
+    * @param enabled   is update allowed?
+    * @return nothing
+    */  
+    virtual void setUpdateEnabled(bool enabled) {
+      //Serial.print("Value::setUpdateEnabled() ");
+      //Serial.println(enabled);
+      
+      _updateEnabled = enabled;
+    }
+
+   /**
+    * update the SensorValue's value, (if _updateEnabled is true)
+    * @param value the new value
+    * @return nothing
+    */  
+    virtual void updateValue(T value) {
+      //Serial.println("Value::updateValue()");
+      
+      if (_updateEnabled) {
+        Value<T>::setValue(value);
+      }
+    }
+    
+    
 };
 
 template <class T>
