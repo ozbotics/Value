@@ -9,7 +9,7 @@ void FilteredValue<unsigned int>::setValue(unsigned int val) {
   _valueBuf[_bufIndex] = val;
   _bufIndex++;
   
-  if (_bufIndex > FILTERED_VALUE_BUF_SIZE) {
+  if (_bufIndex >= FILTERED_VALUE_BUF_SIZE) {
     _bufIndex = 0;  // rollover index
   }
 }

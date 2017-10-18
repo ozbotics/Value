@@ -21,7 +21,7 @@ template <class T>
 class FilteredValue : public Value<T> {
   protected:
     T _valueBuf[FILTERED_VALUE_BUF_SIZE];
-    uint8_t _bufIndex; 
+    uint8_t _bufIndex=0; 
     
   public:
   /**
@@ -31,9 +31,7 @@ class FilteredValue : public Value<T> {
     * @param divideBy Divide the value by this amount, eg; 60000 to convert milliseconds to minutes.
     */  
     FilteredValue(byte displayLength=1, byte displayDecimals=0, unsigned int divideBy=1) : Value<T>(displayLength, displayDecimals, divideBy) { 
-      for (int i=0; i<FILTERED_VALUE_BUF_SIZE; i++) {
-        _valueBuf[i] = T();
-      }
+      memset(_valueBuf, 0, FILTERED_VALUE_BUF_SIZE*sizeof(T));
     }
     
   /**
