@@ -31,7 +31,9 @@ class FilteredValue : public Value<T> {
     * @param divideBy Divide the value by this amount, eg; 60000 to convert milliseconds to minutes.
     */  
     FilteredValue(byte displayLength=1, byte displayDecimals=0, unsigned int divideBy=1) : Value<T>(displayLength, displayDecimals, divideBy) { 
-      memset(_valueBuf, 0, FILTERED_VALUE_BUF_SIZE*sizeof(T));
+      for (byte i=0; i<FILTERED_VALUE_BUF_SIZE; i++) {
+        _valueBuf[i] = T();
+      }
     }
     
   /**
